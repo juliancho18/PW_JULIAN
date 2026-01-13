@@ -1,118 +1,1085 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wilson Martinez | Desarrollo Web, IoT y Automatización</title>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="icon" href="aries.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julian David Robles Farías | Ingeniero Electrónico • Data • Web</title>
+
+  <link rel="stylesheet" href="./assets/style.css" />
+
+  <!-- ✅ FAVICON (recomendado dentro de /assets) -->
+  <link rel="icon" href="./assets/julian_icon.ico?v=2" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/julian_icon.ico?v=2" type="image/x-icon">
+
+  <meta name="description" content="HV Web - Julian David Robles Farías. Ingeniería Electrónica (biomédica), análisis de datos, gerencia de proyectos, automatización, Python/SQL/R, Power BI." />
 </head>
 
 <body>
-    <!-- Banner Principal -->
-    <div class="banner">
-        <h1>¿Necesitas una Solución Tecnológica?</h1>
-        <p>Yo la creo para ti: Desarrollo Web, Software a Medida, Robótica, IoT y Automatización</p>
+
+  <!-- Background layers -->
+  <div class="bg">
+    <div class="bg-grid"></div>
+    <canvas id="stars"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-scan"></div>
+  </div>
+
+  <!-- Top nav -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">JULIAN ROBLES</span>
+      <span class="brand-tag">Electronic Engineer • Data • Web</span>
     </div>
 
-    <!-- Sección Acerca de mí -->
-    <section class="about-section">
-        <h2>Sobre Mí</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="uc3.jpeg" alt="Foto de Wilson Felipe Martinez Barrantes">
-            </div>
-            <div class="about-text">
-                <p>
-                    Me llamo Wilson Felipe Martinez, ingeniero electrónico y desarrollador fullstack con más de 10 años de experiencia. 
-                    Durante los últimos seis años, he trabajado fusionando hardware, software con análisis de datos para crear soluciones tecnológicas personalizadas.
-                </p>
-                <p>
-                    Domino Python, C, SQL, HTML, R. He llevado a cabo desde aplicaciones clínicas hasta plataformas IoT.
-                </p>
-                <p>
-                    Trabajo contigo desde la idea hasta el software funcionando. Me apasiona convertir problemas reales en herramientas inteligentes y eficientes.
-                </p>
-                <p>
-                    Siempre estoy aprendiendo, siempre creciendo, para darte lo mejor.
-                </p>
-                <h3>¿Tienes un proyecto? Escríbeme:</h3>
-                <div class="whatsapp-contact">
-                    <a href="https://wa.me/573154961310" target="_blank">
-                        <img src="assets/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
-                        +57 315 496 1310
-                    </a>
-                </div>
+    <nav class="nav">
+      <a href="#about" class="nav-link" data-i18n="nav_profile">Perfil</a>
+      <a href="#experience" class="nav-link" data-i18n="nav_experience">Experiencia</a>
+      <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+      <a href="#education" class="nav-link" data-i18n="nav_education">Educación</a>
+      <a href="#downloads" class="nav-link" data-i18n="nav_downloads">Descargas</a>
+      <a href="#location" class="nav-link" data-i18n="nav_location">Bogotá</a>
+      <a href="#contact" class="nav-link" data-i18n="nav_contact">Contacto</a>
+    </nav>
 
-                <div class="linkedin-button">
-                    <a href="https://www.linkedin.com/in/wilson-martinez-ab2266226/" target="_blank" class="linkedin-link">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="linkedin-icon">
-                        Conóceme en LinkedIn
-                    </a>
-                </div>
-            </div>
+    <div class="lang-switch" role="group" aria-label="Selector de idioma">
+      <button id="btnES" class="btn btn-ghost is-active" type="button">ES</button>
+      <button id="btnEN" class="btn btn-ghost" type="button">EN</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="kicker">
+          <span class="pulse"></span>
+          <span data-i18n="kicker">HV WEB • Engineer • Profesional</span>
         </div>
-    </section>
 
-    <!-- Sección de Servicios -->
-    <section class="services-section">
-        <h2>¿Qué Puedo Hacer por Ti?</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <h3>Aplicaciones Web</h3>
-                <p>Desde dashboards, plataformas educativas, sistemas de reservas hasta Gestión de Relaciones con clientes personalizados. Te entrego soluciones funcionales listas para escalar.</p>
-            </div>
-            <div class="service-card">
-                <h3>Software de Escritorio</h3>
-                <p>Programas robustos con interfaces personalizadas, conectados a tus bases de datos, para que gestiones lo que necesites desde tu PC.</p>
-            </div>
-            <div class="service-card">
-                <h3>Sensórica e IoT</h3>
-                <p>Programo cualquier microcontrolador y diseño sistemas que capturan datos en tiempo real. Me conecto por WiFi, Bluetooth, UART, I2C, SPI o LoRa según lo que tu proyecto necesite.</p>
-            </div>
-            <div class="service-card">
-                <h3>Automatización</h3>
-                <p>Elimino tareas repetitivas con scripts inteligentes y sistemas automáticos. Más eficiencia, menos tiempo perdido.</p>
-            </div>
-            <div class="service-card">
-                <h3>Robótica</h3>
-                <p>Desde prototipos a robots funcionales. Desarrollo máquinas que se mueven, piensan y actúan según tus necesidades.</p>
-            </div>
+        <h1 class="glitch" data-text="JULIAN DAVID ROBLES FARÍAS">JULIAN DAVID ROBLES FARÍAS</h1>
+
+        <p class="subtitle typewriter" data-i18n="hero_subtitle">
+          <span class="mono">Ingeniero Electrónico</span> con enfoque en <span class="accent">Análisis de Datos</span>,
+          <span class="accent">Gerencia de Proyectos</span> y <span class="accent">Desarrollo Web</span>.
+          <span class="subaccent">Experiencia aplicada en entornos biomédicos (equipos, trazabilidad y datos técnicos).</span>
+        </p>
+
+        <div class="hero-badges">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">R</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">LaTeX</span>
+          <span class="chip">Data Pipelines</span>
+          <span class="chip">Web</span>
         </div>
-    </section>
 
-    <section class="projects-section">
-        <h2>Casos de Éxito</h2>
-        <ul class="project-list">
-            <li>
-                <strong>Piel Sana IGC</strong>: Sistema de Gestión de Pacientes desarrollado con Python, SQLite y Custom Tkinter. 
-                <br><span class="contact-ref">Contacto: +57 317 668 8662  -  +601 3653767</span>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#downloads" data-i18n="btn_download_hv">Descargar HV</a>
+          <a class="btn btn-outline" href="#experience" data-i18n="btn_view_experience">Ver Experiencia</a>
+        </div>
 
-            <section class="download-section">
-                <p>Carta de recomendación:</p>
-                <a href="./assets/cartaDeRecomendacionPielSana.pdf" download="cartaDeRecomendacionPielSana.pdf" class="cta-button">Descargar PDF</a>
-            </section>
+        <div class="microline">
+          <span class="micro" data-i18n="micro_card">Tarjeta profesional: <b>CN206-184163</b></span>
+          <span class="micro" data-i18n="micro_invima">Registro INVIMA: <b>RH-202509-04444</b></span>
+          <span class="micro" data-i18n="micro_focus">Enfoque: <b>Ingeniería • Biomédica • Datos</b></span>
+        </div>
 
-            </li>
-        </ul>
-    </section>
+        <!-- ✅ Nuevo bloque “Ingeniero / Developer” con animación humo -->
+        <div class="dev-hero reveal">
+          <div class="dev-hero-left">
+            <div class="dev-kicker">
+              <span class="dot"></span>
+              <span data-i18n="dev_kicker">Developer • Automatización • Arquitectura</span>
+            </div>
 
-    <!-- Descargable Gratuito -->
-    <section class="download-section">
-        <h2>¡Aprende a Programar Conmigo!</h2>
-        <p>Curso de programación rápida:</p>
-        <a href="./assets/curso_programacion_cot.pdf" download="curso_programacion_cot.pdf" class="cta-button">Descargar PDF</a>
-    </section>
+            <h3 class="dev-title" data-i18n="dev_title">Construyo sistemas que convierten datos y procesos en control</h3>
+            <p class="dev-sub" data-i18n="dev_sub">
+              Desarrollo soluciones web, automatización y estructuras de datos trazables para soportar decisiones, control operativo y mejora continua.
+            </p>
 
-    <!-- Contacto y Redes -->
-    <section class="contact-section">
-        <h2>Explora más</h2>
-        <div class="button-container">
-            <button onclick="window.open('https://b-de-blog.onrender.com/', '_blank');">B de Blog</button>
-            <button onclick="window.open('https://github.com/WMARBAR', '_blank');">GitHub</button>
-        </div> 
-    </section>
+            <div class="dev-tags">
+              <span class="dev-tag">ETL</span>
+              <span class="dev-tag" data-i18n="dev_tag_dash">Dashboards</span>
+              <span class="dev-tag" data-i18n="dev_tag_quality">Data Quality</span>
+              <span class="dev-tag" data-i18n="dev_tag_iso">ISO / Normas</span>
+            </div>
+          </div>
+
+          <div class="dev-hero-right">
+            <!-- 🔥 TU IMAGEN: ingeniero.png (ponla idealmente en /assets) -->
+            <div class="dev-card smoke-curtain">
+              <img src="./assets/ingeniero.png" alt="Ingeniero - Desarrollo de software" class="dev-img" />
+              <div class="smoke-layer"></div>
+              <div class="hud-lines"></div>
+              <div class="hud-title" data-i18n="dev_hud">SYSTEMS • SOFTWARE • CONTROL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="portrait-card">
+          <div class="portrait-frame">
+            <img class="portrait-img" src="./Julian.png" alt="Foto de Julian David Robles Farías" />
+          </div>
+
+          <div class="portrait-meta">
+            <div class="meta-row">
+              <span class="meta-label" data-i18n="meta_role_label">Rol</span>
+              <span class="meta-value" data-i18n="meta_role_value">Electronic Engineer</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label" data-i18n="meta_focus_label">Enfoque</span>
+              <span class="meta-value" data-i18n="meta_focus_value">Data • Automation • Web</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label" data-i18n="meta_domain_label">Dominio</span>
+              <span class="meta-value" data-i18n="meta_domain_value">Biomedical Tech - Design/</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label" data-i18n="meta_location_label">Ubicación</span>
+              <span class="meta-value" data-i18n="meta_location_value">Colombia</span>
+            </div>
+
+            <div class="quick-actions">
+              <a class="qa" href="mailto:jroblesfarias@gmail.com" title="Enviar correo">
+                ✉️ <span data-i18n="qa_email">Email</span>
+              </a>
+
+              <a class="qa" href="https://soluciones-tecnologicas.onrender.com" target="_blank" rel="noreferrer" title="Web de Proyectos">
+                🌐 <span data-i18n="qa_web">Web de Proyectos</span>
+              </a>
+
+              <!-- ✅ WhatsApp con mensaje precargado (se actualiza según idioma) -->
+              <a id="waLink" class="qa wa" href="#" target="_blank" rel="noreferrer" title="WhatsApp">
+                <img src="./assets/whatsapp-icon.png" alt="WhatsApp" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+
+            <div class="micro-under">
+              <span class="dot"></span>
+              <span data-i18n="micro_under">Arquitectura • Reportes • Automatización • Calidad de datos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scanline"></div>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <a class="scroll-hint" href="#about">
+        <span class="scroll-dot"></span>
+        <span data-i18n="scroll">Desliza</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="about_title">Perfil</h2>
+      <!-- ✅ Perfil consolidado (sin tu nombre) + EN -->
+      <p class="section-subtitle" data-i18n="about_subtitle">
+        Ingeniero electrónico con trayectoria en biomédica, análisis de datos, normatividad e ISO, y sistemas tecnológicos avanzados. Integra mantenimiento y calibración, trazabilidad y registros técnicos, estándares de calidad/continuidad y modelamiento estadístico para análisis, control y mejora de procesos, sumado a gestión de proyectos, automatización y soluciones web orientadas a decisiones y control operativo.
+      </p>
+    </div>
+
+    <div class="lang-panels">
+      <!-- ES PANEL -->
+      <article id="panelES" class="panel is-visible">
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Sobre mí</h3>
+            <p>
+              Ingeniero Electrónico con enfoque en análisis de datos, gerencia de proyectos y desarrollo de soluciones tecnológicas basadas en código.
+              Integro ingeniería, analítica y gestión para optimizar procesos organizacionales mediante el uso estratégico de la información.
+            </p>
+            <p>
+              Domino <b>Python, SQL y R</b> para análisis, automatización y construcción de herramientas analíticas que soportan decisiones estratégicas.
+              He trabajado con integración, limpieza, consolidación y análisis de bases de datos; además de indicadores, reportes técnicos y modelos alineados a objetivos institucionales.
+            </p>
+            <p class="muted">
+              Experiencia aplicada en entornos biomédicos: mantenimiento, calibración, registros técnicos trazables y transformación de información técnica en datos analizables para control y mejora continua.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Áreas de impacto</h3>
+            <div class="impact">
+              <div class="impact-item">
+                <div class="impact-icon">⚙️</div>
+                <div>
+                  <b>Ingeniería de datos</b>
+                  <div class="muted">Pipelines, calidad, trazabilidad, gobierno y modelamiento.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">📊</div>
+                <div>
+                  <b>Analítica aplicada</b>
+                  <div class="muted">Indicadores, métricas, dashboards y soporte a decisiones.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🧠</div>
+                <div>
+                  <b>Automatización</b>
+                  <div class="muted">Estandarización, documentación técnica (LaTeX) y reducción de errores.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🧬</div>
+                <div>
+                  <b>Biomédica (secundario)</b>
+                  <div class="muted">Equipos médicos, mantenimiento/calibración, trazabilidad y calidad.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- EN PANEL -->
+      <article id="panelEN" class="panel">
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">About me</h3>
+            <p>
+              Electronic Engineer focused on data analysis, project management, and code-driven technological solutions.
+              I merge engineering, analytics, and management to optimize processes through strategic use of information.
+            </p>
+            <p>
+              Proficient in <b>Python, SQL, and R</b> for analytics, automation, and decision-support tools.
+              Experienced in data integration, cleaning, consolidation, KPI reporting, and modeling aligned with institutional objectives.
+            </p>
+            <p class="muted">
+              Secondary domain experience in biomedical environments: maintenance/calibration, traceable technical logs, and converting technical records into analyzable datasets for control and continuous improvement.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Impact areas</h3>
+            <div class="impact">
+              <div class="impact-item">
+                <div class="impact-icon">⚙️</div>
+                <div>
+                  <b>Data engineering</b>
+                  <div class="muted">Pipelines, quality, traceability, governance, modeling.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">📊</div>
+                <div>
+                  <b>Applied analytics</b>
+                  <div class="muted">KPIs, dashboards, reporting, decision support.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🧠</div>
+                <div>
+                  <b>Automation</b>
+                  <div class="muted">Standardization, technical documentation (LaTeX), error reduction.</div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🧬</div>
+                <div>
+                  <b>Biomedical (secondary)</b>
+                  <div class="muted">Medical devices, maintenance/calibration, traceability, quality.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="exp_title">Experiencia</h2>
+      <p class="section-subtitle" data-i18n="exp_subtitle">Proyectos y roles donde ingeniería + datos = decisiones mejores.</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- CAR 2025 -->
+      <div class="titem">
+        <div class="tbadge">CAR</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>Corporación Autónoma Regional de Cundinamarca (CAR)</h3>
+            <span class="tdate">Feb 2025 – Dic 2025</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_car_2025">Apoyo a la Gestión Jurídica y Documental – Dirección Jurídica</div>
+
+          <ul class="tlist" data-es>
+            <li>Diseñé, estructuré y administré arquitecturas y <b>pipelines de ingeniería de datos</b> (SECOP II, SAE), asegurando integridad, trazabilidad, disponibilidad y calidad.</li>
+            <li>Ingestión, consolidación, validación y <b>modelamiento estadístico</b> para seguimiento del <b>PAC 2024–2027</b> y análisis del avance de metas institucionales.</li>
+            <li>Implementé esquemas de control, gobierno y análisis de datos contractuales/financieros para transparencia y monitoreo de ejecución con análisis avanzado.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Designed and managed <b>data engineering pipelines</b> (SECOP II, SAE) ensuring integrity, traceability, availability, and quality.</li>
+            <li>Ingestion, consolidation, validation and <b>statistical modeling</b> to track <b>PAC 2024–2027</b> KPIs and institutional goals.</li>
+            <li>Implemented governance/control schemes for contractual and financial analytics to strengthen transparency and monitoring using structured data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- NOTARIA 2023-2025 -->
+      <div class="titem">
+        <div class="tbadge">NOTARÍA</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>Notaría Primera del Círculo de Tunja</h3>
+            <span class="tdate">May 2023 – Ago 2025</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_notaria">Ingeniero de Soporte (Outsourcing)</div>
+
+          <ul class="tlist" data-es>
+            <li>Ejecuté mantenimientos preventivos y correctivos en equipos y sistemas, garantizando continuidad operativa.</li>
+            <li>Desarrollé/soporté y actualicé la <b>página web institucional</b>, fortaleciendo presencia digital y servicios en línea.</li>
+            <li>Administré y optimicé <b>bases de datos</b>, mejorando eficiencia de procesos internos y seguridad de la información.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Performed preventive/corrective maintenance on systems and equipment to ensure operational continuity.</li>
+            <li>Developed/supported and updated the <b>institutional website</b>, improving digital services.</li>
+            <li>Administered and optimized <b>databases</b>, improving internal process efficiency and information security.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CONSULTORIA OPTOMETRIAS 2025 -->
+      <div class="titem">
+        <div class="tbadge">OPTOMETRÍA</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>Consultoría y Auditoría Independiente a Optometrías</h3>
+            <span class="tdate">Mar 2025 – Ago 2025</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_optos">Ingeniero Electrónico</div>
+
+          <ul class="tlist" data-es>
+            <li>Mantenimientos preventivos/correctivos en equipos de optometría, asegurando calidad y confiabilidad diagnóstica.</li>
+            <li>Calibraciones y verificaciones técnicas con cumplimiento de normas, trazabilidad y resultados precisos.</li>
+            <li>Documentación técnica, instalación y puesta en marcha en nuevas sedes para continuidad operativa.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Preventive/corrective maintenance on optometry devices ensuring quality and diagnostic reliability.</li>
+            <li>Technical calibration and verification with standards compliance, traceability, and accurate clinical results.</li>
+            <li>Technical documentation, installation and go-live for new sites to strengthen operational continuity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- APOYO TECNICO OPTOS 2024-2025 -->
+      <div class="titem">
+        <div class="tbadge">BIO</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>Apoyo Técnico en Optometrías (Outsourcing)</h3>
+            <span class="tdate">Ene 2024 – Mar 2025</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_optos_out">Calibración, registros técnicos y estandarización</div>
+
+          <ul class="tlist" data-es>
+            <li>Mantenimientos preventivos/correctivos asegurando funcionamiento, vida útil y confiabilidad de datos técnicos y clínicos.</li>
+            <li>Calibraciones/verificaciones registrando parámetros para análisis comparativo e histórico y detección de desviaciones.</li>
+            <li>Estructuré registros de mantenimiento/fallas para análisis de comportamiento y reportes estandarizados con automatización y <b>LaTeX</b>.</li>
+            <li>Apoyé instalación, configuración y estandarización operativa para reducir errores y mejorar captura de información.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Preventive/corrective maintenance ensuring operation, lifespan and reliability of technical/clinical data.</li>
+            <li>Calibration/verification with parameter logging for comparative/historical analysis and deviation detection.</li>
+            <li>Structured maintenance/failure logs for behavior analysis and standardized reporting using automation and <b>LaTeX</b>.</li>
+            <li>Supported installation, configuration and operational standardization to reduce errors and improve data capture.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CAR GESTION DOCUMENTAL 2022-2023 -->
+      <div class="titem">
+        <div class="tbadge">DATA</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>CAR — Apoyo a la Gestión Documental</h3>
+            <span class="tdate">Ago 2022 – Dic 2023</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_car_doc">Gestión jurídica, documental y analítica</div>
+
+          <ul class="tlist" data-es>
+            <li>Gestioné trazabilidad documental y cumplimiento normativo, diseñando arquitecturas de información para integrar y analizar datos regulatorios.</li>
+            <li>Participé en desarrollos de software y herramientas analíticas, estructurando bases de datos y flujos asociados a actos administrativos e informes.</li>
+            <li>Digitalización y descongestión: convertí información histórica en datos estructurados para <b>dashboards</b>, tendencias y proyección de cargas jurídicas.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Managed traceability and compliance by designing information architectures to integrate and analyze regulatory/administrative data.</li>
+            <li>Contributed to software/analytics tools and databases for administrative acts, notifications and technical reports.</li>
+            <li>Digitization initiatives: converted historical records into structured data for <b>dashboards</b>, trends and workload forecasting.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CAR DATOS AMBIENTALES 2024 -->
+      <div class="titem">
+        <div class="tbadge">CAR</div>
+        <div class="tcard">
+          <div class="trow">
+            <h3>CAR — Datos Ambientales (SAE / SIDCAR / VITAL)</h3>
+            <span class="tdate">Sep 2024 – Dic 2024</span>
+          </div>
+          <div class="trole" data-i18n="exp_role_car_env">Organización, depuración y validación de datos</div>
+
+          <ul class="tlist" data-es>
+            <li>Optimicé estructura de datos ambientales en SAE, SIDCAR y VITAL, asegurando trazabilidad, consistencia, integridad y cumplimiento normativo.</li>
+            <li>Organicé, depuré y validé datos para análisis estructurado en escenarios sancionatorios y permisivos mediante dashboards.</li>
+            <li>Estructuré flujos de información administrativa/jurídica y contribuí a bases consolidadas para mejorar disponibilidad, calidad y soporte a decisiones.</li>
+          </ul>
+
+          <ul class="tlist" data-en>
+            <li>Optimized environmental data structures (SAE, SIDCAR, VITAL) ensuring traceability, consistency, integrity and compliance.</li>
+            <li>Organized, cleaned and validated data enabling structured analysis for regulatory scenarios through dashboards.</li>
+            <li>Built administrative/legal information flows and consolidated databases to improve availability, data quality and decision support.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="skills_title">Habilidades</h2>
+      <p class="section-subtitle" data-i18n="skills_subtitle">Stack y capacidades clave para roles de Data / Ingeniería / Web.</p>
+    </div>
+
+    <div class="cards-3">
+      <div class="card">
+        <h3 class="card-title" data-i18n="skills_tech">Técnicas</h3>
+        <div class="taglist">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">R</span>
+          <span class="tag">Power BI</span>
+          <span class="tag" data-i18n="skills_excel">Excel Avanzado</span>
+          <span class="tag" data-i18n="skills_latex">LaTeX Avanzado</span>
+          <span class="tag" data-i18n="skills_model">Modelamiento / Estadística</span>
+          <span class="tag" data-i18n="skills_dash">Dashboards</span>
+          <span class="tag" data-i18n="skills_auto">Automatización</span>
+          <span class="tag" data-i18n="skills_db">Optimización BD</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" data-i18n="skills_mgmt">Gestión y normatividad</h3>
+        <div class="taglist">
+          <span class="tag" data-i18n="skills_pm">Gerencia de proyectos</span>
+          <span class="tag" data-i18n="skills_regs">Normatividad aplicada</span>
+          <span class="tag" data-i18n="skills_gov">Gobierno de datos</span>
+          <span class="tag" data-i18n="skills_trace">Trazabilidad</span>
+          <span class="tag" data-i18n="skills_comp">Cumplimiento</span>
+          <span class="tag" data-i18n="skills_problem">Solución de problemas complejos</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" data-i18n="skills_soft">Soft skills</h3>
+        <div class="taglist">
+          <span class="tag" data-i18n="skills_lead">Liderazgo</span>
+          <span class="tag" data-i18n="skills_analytical">Pensamiento analítico</span>
+          <span class="tag" data-i18n="skills_results">Orientación a resultados</span>
+          <span class="tag" data-i18n="skills_adapt">Adaptabilidad</span>
+          <span class="tag" data-i18n="skills_comm">Comunicación técnica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + COURSES -->
+  <section id="education" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="edu_title">Educación & Cursos</h2>
+      <p class="section-subtitle" data-i18n="edu_subtitle">Formación formal + certificaciones relevantes.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="card-title" data-i18n="edu_education">Educación</h3>
+
+        <div class="list">
+          <div class="list-item">
+            <b data-i18n="edu_pm_spec">Especialización en Gerencia de Proyectos</b>
+            <span class="muted">Uniminuto • 2025</span>
+          </div>
+          <div class="list-item">
+            <b data-i18n="edu_electronic">Ingeniería Electrónica</b>
+            <span class="muted">Universidad Central • 2025</span>
+          </div>
+          <div class="list-item">
+            <b data-i18n="edu_highschool">Bachiller Académico</b>
+            <span class="muted">Colegio Salesiano de Mosquera • 2025</span>
+          </div>
+        </div>
+
+        <div class="note">
+          <span class="note-dot"></span>
+          <span data-i18n="edu_note">Certificado: terminación de materias</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" data-i18n="edu_courses">Cursos</h3>
+
+        <div class="list">
+          <div class="list-item">
+            <b>Auditor interno ISO 22301</b>
+            <span class="muted">Certmind • 2025</span>
+          </div>
+          <div class="list-item">
+            <b data-i18n="edu_sap">Gestión de proyectos y procesos empresariales con SAP ERP</b>
+            <span class="muted">Universidad Central • 2024</span>
+          </div>
+          <div class="list-item">
+            <b>The Complete ISO 13485 QA Course for Medical Devices</b>
+            <span class="muted">Udemy • 2025</span>
+          </div>
+          <div class="list-item">
+            <b>Electronics in Biomedical Engineering: Theory & Repair</b>
+            <span class="muted">Udemy • 2025</span>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:10px;" data-i18n="edu_extra">
+          Formación complementaria orientada a calidad, continuidad operativa y entornos biomédicos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS -->
+  <section id="downloads" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="dl_title">Descargas</h2>
+      <p class="section-subtitle" data-i18n="dl_subtitle">Documentos listos para compartir con reclutadores y clientes.</p>
+    </div>
+
+    <div class="downloads">
+      <div class="download-card">
+        <div class="download-icon">⬇</div>
+        <div class="download-info">
+          <b data-i18n="dl_es_title">HV (Español) — PDF</b>
+          <span class="muted" data-i18n="dl_es_sub">Descarga mi hoja de vida en español.</span>
+        </div>
+        <a class="btn btn-primary" href="./assets/HV-Julian_Robles%20DS.pdf" download data-i18n="dl_es_btn">Descargar</a>
+      </div>
+
+      <div class="download-card">
+        <div class="download-icon">⬇</div>
+        <div class="download-info">
+          <b data-i18n="dl_en_title">Resume (English) — PDF</b>
+          <span class="muted" data-i18n="dl_en_sub">Download my resume in English.</span>
+        </div>
+        <a class="btn btn-outline" href="./assets/HV-Julian_Robles_DS_EN.pdf" download data-i18n="dl_en_btn">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ BOGOTÁ MAP -->
+  <section id="location" class="section reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="loc_title">Bogotá</h2>
+      <p class="section-subtitle" data-i18n="loc_subtitle">
+        Base operativa en Bogotá, Colombia. Disponible para proyectos presenciales y remotos.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="card-title" data-i18n="loc_card_title">Zona</h3>
+        <p class="muted" data-i18n="loc_card_text">
+          Trabajo con enfoque en ingeniería, datos y automatización. Coordinación por correo o WhatsApp para entrevistas, proyectos y consultoría.
+        </p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:jroblesfarias@gmail.com" data-i18n="loc_btn_email">Coordinar por Email</a>
+          <a class="btn btn-outline" id="waLink2" href="#" target="_blank" rel="noreferrer" data-i18n="loc_btn_wa">Escribir por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card map-card">
+        <div class="map-hud">
+          <span class="dot"></span>
+          <span data-i18n="loc_hud">NEON MAP • BOGOTÁ</span>
+        </div>
+
+        <!-- OpenStreetMap embed (funciona en GitHub Pages) -->
+        <iframe
+          class="map-embed"
+          title="Mapa de Bogotá"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-74.1900%2C4.5200%2C-73.9900%2C4.7600&amp;layer=mapnik"
+          loading="lazy">
+        </iframe>
+
+        <div class="map-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-last reveal">
+    <div class="section-head">
+      <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
+      <p class="section-subtitle" data-i18n="contact_subtitle">Contacto directo y profesional.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="card">
+        <h3 class="card-title" data-i18n="contact_data">Datos</h3>
+
+        <div class="contact-line">
+          <span class="cicon">📞</span>
+          <span><b>Tel:</b> (322) 247-3405</span>
+        </div>
+
+        <div class="contact-line">
+          <span class="cicon">✉️</span>
+          <span><b>Email:</b> <a href="mailto:jroblesfarias@gmail.com">jroblesfarias@gmail.com</a></span>
+        </div>
+
+        <div class="contact-line">
+          <span class="cicon">🌐</span>
+          <span><b data-i18n="contact_site_label">Web de proyectos:</b>
+            <a href="https://soluciones-tecnologicas.onrender.com" target="_blank" rel="noreferrer">soluciones-tecnologicas.onrender.com</a>
+          </span>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:jroblesfarias@gmail.com" data-i18n="contact_btn_email">Escríbeme</a>
+
+          <a class="btn btn-outline" id="waLink3" href="#" target="_blank" rel="noreferrer">
+            <img class="btn-icon" src="./assets/whatsapp-icon.png" alt="WhatsApp">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" data-i18n="contact_pitch_title">Mensaje para iniciar conversación</h3>
+        <p class="muted" data-i18n="contact_pitch_sub">
+          Lo usaré como texto automático en WhatsApp. Puedes copiarlo o enviarlo directo.
+        </p>
+
+        <div class="quick-message">
+          <code id="msgText"></code>
+          <button class="btn btn-ghost" id="copyMsg" type="button" data-i18n="copy_btn">Copiar</button>
+        </div>
+
+        <div class="footer-mini">
+          <span class="pulse"></span>
+          <span data-i18n="footer_mini">Portafolio construido con enfoque en ingeniería, datos y estética futurista.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> Julian David Robles Farías • HV Web</div>
+    <div class="footer-links">
+      <a href="#about" data-i18n="nav_profile">Perfil</a>
+      <a href="#experience" data-i18n="nav_experience">Experiencia</a>
+      <a href="#downloads" data-i18n="nav_downloads">Descargas</a>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- i18n dictionary ----------
+    const I18N = {
+      es: {
+        nav_profile: "Perfil",
+        nav_experience: "Experiencia",
+        nav_skills: "Skills",
+        nav_education: "Educación",
+        nav_downloads: "Descargas",
+        nav_location: "Bogotá",
+        nav_contact: "Contacto",
+
+        kicker: "HV WEB • Engineer • Profesional",
+        hero_subtitle: `
+          <span class="mono">Ingeniero Electrónico</span> con enfoque en <span class="accent">Análisis de Datos</span>,
+          <span class="accent">Gerencia de Proyectos</span> y <span class="accent">Desarrollo Web</span>.
+          <span class="subaccent">Experiencia aplicada en entornos biomédicos (equipos, trazabilidad y datos técnicos).</span>
+        `,
+        btn_download_hv: "Descargar HV",
+        btn_view_experience: "Ver Experiencia",
+
+        micro_card: `Tarjeta profesional: <b>CN206-184163</b>`,
+        micro_invima: `Registro INVIMA: <b>RH-202509-04444</b>`,
+        micro_focus: `Enfoque: <b>Ingeniería • Biomédica • Datos</b>`,
+
+        dev_kicker: "Developer • Automatización • Arquitectura",
+        dev_title: "Construyo sistemas que convierten datos y procesos en control",
+        dev_sub: "Desarrollo soluciones web, automatización y estructuras de datos trazables para soportar decisiones, control operativo y mejora continua.",
+        dev_tag_dash: "Dashboards",
+        dev_tag_quality: "Calidad de datos",
+        dev_tag_iso: "ISO / Normas",
+        dev_hud: "SYSTEMS • SOFTWARE • CONTROL",
+
+        meta_role_label: "Rol",
+        meta_role_value: "Electronic Engineer",
+        meta_focus_label: "Enfoque",
+        meta_focus_value: "Data • Automation • Web",
+        meta_domain_label: "Dominio",
+        meta_domain_value: "Biomedical Tech - Design",
+        meta_location_label: "Ubicación",
+        meta_location_value: "Colombia",
+
+        qa_email: "Email",
+        qa_web: "Web de Proyectos",
+        micro_under: "Arquitectura • Reportes • Automatización • Calidad de datos",
+        scroll: "Desliza",
+
+        about_title: "Perfil",
+        about_subtitle: "Ingeniero electrónico con trayectoria en biomédica, análisis de datos, normatividad e ISO, y sistemas tecnológicos avanzados. Integra mantenimiento y calibración, trazabilidad y registros técnicos, estándares de calidad/continuidad y modelamiento estadístico para análisis, control y mejora de procesos, sumado a gestión de proyectos, automatización y soluciones web orientadas a decisiones y control operativo.",
+
+        exp_title: "Experiencia",
+        exp_subtitle: "Proyectos y roles donde ingeniería + datos = decisiones mejores.",
+        exp_role_car_2025: "Apoyo a la Gestión Jurídica y Documental – Dirección Jurídica",
+        exp_role_notaria: "Ingeniero de Soporte (Outsourcing)",
+        exp_role_optos: "Ingeniero Electrónico",
+        exp_role_optos_out: "Calibración, registros técnicos y estandarización",
+        exp_role_car_doc: "Gestión jurídica, documental y analítica",
+        exp_role_car_env: "Organización, depuración y validación de datos",
+
+        skills_title: "Habilidades",
+        skills_subtitle: "Stack y capacidades clave para roles de Data / Ingeniería / Web.",
+        skills_tech: "Técnicas",
+        skills_excel: "Excel Avanzado",
+        skills_latex: "LaTeX Avanzado",
+        skills_model: "Modelamiento / Estadística",
+        skills_dash: "Dashboards",
+        skills_auto: "Automatización",
+        skills_db: "Optimización BD",
+        skills_mgmt: "Gestión y normatividad",
+        skills_pm: "Gerencia de proyectos",
+        skills_regs: "Normatividad aplicada",
+        skills_gov: "Gobierno de datos",
+        skills_trace: "Trazabilidad",
+        skills_comp: "Cumplimiento",
+        skills_problem: "Solución de problemas complejos",
+        skills_soft: "Soft skills",
+        skills_lead: "Liderazgo",
+        skills_analytical: "Pensamiento analítico",
+        skills_results: "Orientación a resultados",
+        skills_adapt: "Adaptabilidad",
+        skills_comm: "Comunicación técnica",
+
+        edu_title: "Educación & Cursos",
+        edu_subtitle: "Formación formal + certificaciones relevantes.",
+        edu_education: "Educación",
+        edu_pm_spec: "Especialización en Gerencia de Proyectos",
+        edu_electronic: "Ingeniería Electrónica",
+        edu_highschool: "Bachiller Académico",
+        edu_note: "Certificado: terminación de materias",
+        edu_courses: "Cursos",
+        edu_sap: "Gestión de proyectos y procesos empresariales con SAP ERP",
+        edu_extra: "Formación complementaria orientada a calidad, continuidad operativa y entornos biomédicos.",
+
+        dl_title: "Descargas",
+        dl_subtitle: "Documentos listos para compartir con reclutadores y clientes.",
+        dl_es_title: "HV (Español) — PDF",
+        dl_es_sub: "Descarga mi hoja de vida en español.",
+        dl_es_btn: "Descargar",
+        dl_en_title: "Resume (English) — PDF",
+        dl_en_sub: "Download my resume in English.",
+        dl_en_btn: "Download",
+
+        loc_title: "Bogotá",
+        loc_subtitle: "Base operativa en Bogotá, Colombia. Disponible para proyectos presenciales y remotos.",
+        loc_card_title: "Zona",
+        loc_card_text: "Trabajo con enfoque en ingeniería, datos y automatización. Coordinación por correo o WhatsApp para entrevistas, proyectos y consultoría.",
+        loc_btn_email: "Coordinar por Email",
+        loc_btn_wa: "Escribir por WhatsApp",
+        loc_hud: "NEON MAP • BOGOTÁ",
+
+        contact_title: "Contacto",
+        contact_subtitle: "Contacto directo y profesional.",
+        contact_data: "Datos",
+        contact_site_label: "Web:",
+        contact_btn_email: "Escríbeme",
+        contact_pitch_title: "Mensaje para iniciar conversación",
+        contact_pitch_sub: "Lo usaré como texto automático en WhatsApp. Puedes copiarlo o enviarlo directo.",
+        copy_btn: "Copiar",
+        footer_mini: "Portafolio construido con enfoque en ingeniería, datos y estética futurista.",
+
+        wa_message: "Hola Julian, vi tu perfil (Ingeniería/Data/Web). Me gustaría conocer tu disponibilidad para una llamada o entrevista. ¿Podemos coordinar?"
+      },
+
+      en: {
+        nav_profile: "Profile",
+        nav_experience: "Experience",
+        nav_skills: "Skills",
+        nav_education: "Education",
+        nav_downloads: "Downloads",
+        nav_location: "Bogotá",
+        nav_contact: "Contact",
+
+        kicker: "HV WEB • Engineer • Professional",
+        hero_subtitle: `
+          <span class="mono">Electronic Engineer</span> focused on <span class="accent">Data Analysis</span>,
+          <span class="accent">Project Management</span> and <span class="accent">Web Development</span>.
+          <span class="subaccent">Applied experience in biomedical environments (devices, traceability and technical data).</span>
+        `,
+        btn_download_hv: "Download CV",
+        btn_view_experience: "View Experience",
+
+        micro_card: `Professional license: <b>CN206-184163</b>`,
+        micro_invima: `INVIMA registration: <b>RH-202509-04444</b>`,
+        micro_focus: `Focus: <b>Engineering • Biomedical • Data</b>`,
+
+        dev_kicker: "Developer • Automation • Architecture",
+        dev_title: "I build systems that turn data and processes into control",
+        dev_sub: "I develop web solutions, automation, and traceable data structures to support decisions, operational control, and continuous improvement.",
+        dev_tag_dash: "Dashboards",
+        dev_tag_quality: "Data Quality",
+        dev_tag_iso: "ISO / Standards",
+        dev_hud: "SYSTEMS • SOFTWARE • CONTROL",
+
+        meta_role_label: "Role",
+        meta_role_value: "Electronic Engineer",
+        meta_focus_label: "Focus",
+        meta_focus_value: "Data • Automation • Web",
+        meta_domain_label: "Domain",
+        meta_domain_value: "Biomedical Tech - Design",
+        meta_location_label: "Location",
+        meta_location_value: "Colombia",
+
+        qa_email: "Email",
+        qa_web: "Project Website",
+        micro_under: "Architecture • Reporting • Automation • Data Quality",
+        scroll: "Scroll",
+
+        about_title: "Profile",
+        about_subtitle: "Electronic Engineer with a track record across biomedical projects, data analysis, ISO/standards, and advanced technological systems. Combines maintenance and calibration, traceable technical records, quality/continuity standards, and statistical modeling for process analysis and control—plus project management, automation, and web solutions focused on decision-making and operational control.",
+
+        exp_title: "Experience",
+        exp_subtitle: "Roles where engineering + data drive better decisions.",
+        exp_role_car_2025: "Legal & Document Management Support – Legal Directorate",
+        exp_role_notaria: "Support Engineer (Outsourcing)",
+        exp_role_optos: "Electronic Engineer",
+        exp_role_optos_out: "Calibration, technical logs and standardization",
+        exp_role_car_doc: "Legal/document management & analytics",
+        exp_role_car_env: "Data organization, cleansing and validation",
+
+        skills_title: "Skills",
+        skills_subtitle: "Core stack and capabilities for Data / Engineering / Web roles.",
+        skills_tech: "Technical",
+        skills_excel: "Advanced Excel",
+        skills_latex: "Advanced LaTeX",
+        skills_model: "Modeling / Statistics",
+        skills_dash: "Dashboards",
+        skills_auto: "Automation",
+        skills_db: "DB Optimization",
+        skills_mgmt: "Management & standards",
+        skills_pm: "Project management",
+        skills_regs: "Applied regulations",
+        skills_gov: "Data governance",
+        skills_trace: "Traceability",
+        skills_comp: "Compliance",
+        skills_problem: "Complex problem-solving",
+        skills_soft: "Soft skills",
+        skills_lead: "Leadership",
+        skills_analytical: "Analytical thinking",
+        skills_results: "Results-driven",
+        skills_adapt: "Adaptability",
+        skills_comm: "Technical communication",
+
+        edu_title: "Education & Courses",
+        edu_subtitle: "Formal background + relevant certifications.",
+        edu_education: "Education",
+        edu_pm_spec: "Project Management Specialization",
+        edu_electronic: "Electronic Engineering",
+        edu_highschool: "High School Diploma",
+        edu_note: "Completed coursework certificate",
+        edu_courses: "Courses",
+        edu_sap: "Project & business process management with SAP ERP",
+        edu_extra: "Additional training focused on quality, operational continuity, and biomedical environments.",
+
+        dl_title: "Downloads",
+        dl_subtitle: "Documents ready to share with recruiters and clients.",
+        dl_es_title: "CV (Spanish) — PDF",
+        dl_es_sub: "Download my Spanish CV.",
+        dl_es_btn: "Download",
+        dl_en_title: "Resume (English) — PDF",
+        dl_en_sub: "Download my English resume.",
+        dl_en_btn: "Download",
+
+        loc_title: "Bogotá",
+        loc_subtitle: "Operating base in Bogotá, Colombia. Available for on-site and remote projects.",
+        loc_card_title: "Area",
+        loc_card_text: "I work across engineering, data and automation. Reach out by email or WhatsApp for interviews, projects and consulting.",
+        loc_btn_email: "Coordinate via Email",
+        loc_btn_wa: "Message on WhatsApp",
+        loc_hud: "NEON MAP • BOGOTÁ",
+
+        contact_title: "Contact",
+        contact_subtitle: "Direct and professional contact.",
+        contact_data: "Details",
+        contact_site_label: "Website:",
+        contact_btn_email: "Email me",
+        contact_pitch_title: "Message to start the conversation",
+        contact_pitch_sub: "This will be used as the automatic WhatsApp text. Copy or send it directly.",
+        copy_btn: "Copy",
+        footer_mini: "Portfolio built with an engineering mindset, data focus, and a futuristic aesthetic.",
+
+        wa_message: "Hi Julian, I saw your profile (Engineering/Data/Web). I’d like to check your availability for a call or interview. Can we coordinate?"
+      }
+    };
+
+    // ---------- Language Toggle ----------
+    const btnES = document.getElementById("btnES");
+    const btnEN = document.getElementById("btnEN");
+    const panelES = document.getElementById("panelES");
+    const panelEN = document.getElementById("panelEN");
+
+    const listsES = document.querySelectorAll("[data-es]");
+    const listsEN = document.querySelectorAll("[data-en]");
+
+    const msgCode = document.getElementById("msgText");
+    const waLink = document.getElementById("waLink");
+    const waLink2 = document.getElementById("waLink2");
+    const waLink3 = document.getElementById("waLink3");
+
+    function setLang(lang) {
+      const isES = lang === "es";
+      const dict = I18N[lang];
+
+      btnES.classList.toggle("is-active", isES);
+      btnEN.classList.toggle("is-active", !isES);
+
+      panelES.classList.toggle("is-visible", isES);
+      panelEN.classList.toggle("is-visible", !isES);
+
+      listsES.forEach(el => el.style.display = isES ? "block" : "none");
+      listsEN.forEach(el => el.style.display = isES ? "none" : "block");
+
+      // Apply i18n to elements
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (!dict[key]) return;
+        // allow HTML for some fields
+        const allowHTML = ["hero_subtitle","micro_card","micro_invima","micro_focus"].includes(key);
+        if (allowHTML) el.innerHTML = dict[key];
+        else el.textContent = dict[key];
+      });
+
+      // WhatsApp message + links
+      const waMsg = dict.wa_message;
+      msgCode.textContent = waMsg;
+      const waHref = "https://wa.me/573222473405?text=" + encodeURIComponent(waMsg);
+
+      waLink.href = waHref;
+      waLink2.href = waHref;
+      waLink3.href = waHref;
+
+      document.documentElement.lang = lang;
+    }
+
+    btnES.addEventListener("click", () => setLang("es"));
+    btnEN.addEventListener("click", () => setLang("en"));
+
+    // Default ES
+    setLang("es");
+
+    // ---------- Year ----------
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---------- Copy message ----------
+    const copyBtn = document.getElementById("copyMsg");
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(msgCode.textContent.trim());
+        copyBtn.textContent = (document.documentElement.lang === "es") ? "Copiado ✓" : "Copied ✓";
+        setTimeout(() => copyBtn.textContent = I18N[document.documentElement.lang].copy_btn, 1400);
+      } catch(e) {
+        alert("No se pudo copiar. Copia manualmente el texto.");
+      }
+    });
+
+    // ---------- Smooth Scroll ----------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // ---------- Reveal on Scroll (Curtain / Entrance) ----------
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal, .card, .tcard, .download-card, .dev-hero, .map-card").forEach(el => {
+      el.classList.add("pre-in");
+      observer.observe(el);
+    });
+
+    // ---------- Stars Canvas (blue) ----------
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+
+    let w, h, stars;
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      stars = Array.from({ length: Math.min(260, Math.floor((w*h)/12000)) }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.9 + 0.2,
+        s: Math.random() * 0.7 + 0.12
+      }));
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function draw() {
+      ctx.clearRect(0,0,w,h);
+      for (const st of stars) {
+        st.y += st.s;
+        if (st.y > h) { st.y = -10; st.x = Math.random()*w; }
+        ctx.beginPath();
+        ctx.arc(st.x, st.y, st.r, 0, Math.PI*2);
+        ctx.fillStyle = "rgba(0,217,255,0.55)";
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+
 </body>
-
 </html>
