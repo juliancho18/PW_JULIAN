@@ -11,6 +11,322 @@
   <link rel="shortcut icon" href="./assets/julian_icon.ico?v=2" type="image/x-icon">
 
   <meta name="description" content="HV Web - Julian David Robles Farías. Ingeniero Electrónico, Especialista en Gerencia de Proyectos, análisis de datos, automatización, agentes IA, modelos de lenguaje, prompts empresariales, Python, SQL, R, Power BI y soluciones tecnológicas." />
+
+
+  <!-- ==============================
+       ARTEMIS CHATBOT - ESTILOS
+       ============================== -->
+  <style>
+    :root{
+      --artemis-bg: rgba(4, 10, 24, .92);
+      --artemis-panel: rgba(8, 22, 42, .88);
+      --artemis-border: rgba(0, 217, 255, .38);
+      --artemis-cyan: #00d9ff;
+      --artemis-blue: #4b7bff;
+      --artemis-violet: #8a5cff;
+      --artemis-text: #eaf7ff;
+      --artemis-muted: rgba(234,247,255,.68);
+      --artemis-user: linear-gradient(135deg, rgba(0,217,255,.28), rgba(138,92,255,.25));
+      --artemis-bot: rgba(255,255,255,.07);
+    }
+
+    .artemis-launcher{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9998;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 1px solid var(--artemis-border);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.28), transparent 24%),
+        linear-gradient(135deg, rgba(0,217,255,.25), rgba(138,92,255,.32)),
+        rgba(5, 12, 27, .94);
+      box-shadow: 0 0 25px rgba(0,217,255,.35), 0 0 70px rgba(138,92,255,.18);
+      color: var(--artemis-text);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .artemis-launcher:hover{
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 34px rgba(0,217,255,.48), 0 0 90px rgba(138,92,255,.27);
+    }
+
+    .artemis-launcher::before{
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: inherit;
+      border: 1px dashed rgba(234,247,255,.22);
+      animation: artemisSpin 9s linear infinite;
+    }
+
+    .artemis-launcher-avatar{
+      font-size: 48px;
+      filter: drop-shadow(0 0 12px rgba(0,217,255,.55));
+      animation: artemisFloat 2.8s ease-in-out infinite;
+    }
+
+    .artemis-launcher-ping{
+      position: absolute;
+      top: 16px;
+      right: 17px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #29ffb1;
+      box-shadow: 0 0 14px rgba(41,255,177,.9);
+    }
+
+    .artemis-chat{
+      position: fixed;
+      right: 22px;
+      bottom: 135px;
+      z-index: 9999;
+      width: min(520px, calc(100vw - 28px));
+      height: min(720px, calc(100vh - 155px));
+      display: none;
+      flex-direction: column;
+      color: var(--artemis-text);
+      background:
+        linear-gradient(180deg, rgba(0,217,255,.08), transparent 22%),
+        var(--artemis-bg);
+      border: 1px solid var(--artemis-border);
+      border-radius: 26px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.48), 0 0 55px rgba(0,217,255,.15);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .artemis-chat.is-open{ display: flex; animation: artemisIn .24s ease both; }
+
+    .artemis-chat::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      opacity: .35;
+    }
+
+    .artemis-header{
+      position: relative;
+      padding: 20px 20px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,217,255,.18);
+      background: linear-gradient(135deg, rgba(0,217,255,.14), rgba(138,92,255,.10));
+    }
+
+    .artemis-helmet{
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      font-size: 40px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.30), transparent 23%), rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: inset 0 0 20px rgba(0,217,255,.15), 0 0 22px rgba(0,217,255,.18);
+    }
+
+    .artemis-titlebox{ flex: 1; min-width: 0; }
+
+    .artemis-title{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .artemis-subtitle{
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: var(--artemis-muted);
+    }
+
+    .artemis-close{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--artemis-text);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .artemis-body{
+      position: relative;
+      flex: 1;
+      padding: 14px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,217,255,.55) transparent;
+    }
+
+    .artemis-msg{
+      max-width: 88%;
+      padding: 11px 12px;
+      border-radius: 17px;
+      font-size: 14.5px;
+      line-height: 1.45;
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+      white-space: pre-line;
+    }
+
+    .artemis-msg.bot{
+      align-self: flex-start;
+      background: var(--artemis-bot);
+      border-top-left-radius: 6px;
+    }
+
+    .artemis-msg.user{
+      align-self: flex-end;
+      background: var(--artemis-user);
+      border-top-right-radius: 6px;
+    }
+
+    .artemis-msg b{ color: #aef4ff; }
+
+    .artemis-suggestions{
+      position: relative;
+      padding: 0 14px 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      border-top: 1px solid rgba(0,217,255,.10);
+      padding-top: 12px;
+    }
+
+    .artemis-chip{
+      flex: 0 0 auto;
+      border: 1px solid rgba(0,217,255,.28);
+      background: rgba(0,217,255,.07);
+      color: var(--artemis-text);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .artemis-chip:hover{
+      transform: translateY(-2px);
+      background: rgba(0,217,255,.14);
+    }
+
+    .artemis-inputbar{
+      position: relative;
+      padding: 12px;
+      display: flex;
+      gap: 9px;
+      background: rgba(0,0,0,.16);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .artemis-input{
+      flex: 1;
+      min-width: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(0,217,255,.22);
+      background: rgba(255,255,255,.06);
+      color: var(--artemis-text);
+      outline: none;
+      padding: 12px 12px;
+      font-size: 13.5px;
+    }
+
+    .artemis-input::placeholder{ color: rgba(234,247,255,.42); }
+
+    .artemis-send{
+      width: 56px;
+      border: 1px solid rgba(0,217,255,.34);
+      border-radius: 16px;
+      color: #06101d;
+      font-weight: 800;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--artemis-cyan), #a9f7ff);
+      box-shadow: 0 0 18px rgba(0,217,255,.22);
+    }
+
+    .artemis-typing{
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .artemis-typing span{
+      width: 6px; height: 6px; border-radius: 50%; background: var(--artemis-cyan);
+      animation: artemisDots .9s infinite ease-in-out;
+    }
+    .artemis-typing span:nth-child(2){ animation-delay: .12s; }
+    .artemis-typing span:nth-child(3){ animation-delay: .24s; }
+
+    @keyframes artemisIn{ from{ opacity:0; transform: translateY(12px) scale(.98);} to{opacity:1; transform:none;} }
+    @keyframes artemisFloat{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-5px);} }
+    @keyframes artemisSpin{ to{ transform: rotate(360deg);} }
+    @keyframes artemisDots{ 0%,80%,100%{ transform: translateY(0); opacity:.45;} 40%{ transform: translateY(-4px); opacity:1;} }
+
+
+    .artemis-callout{
+      position: fixed;
+      right: 132px;
+      bottom: 45px;
+      z-index: 9997;
+      max-width: 310px;
+      padding: 13px 15px;
+      border-radius: 18px 18px 6px 18px;
+      color: var(--artemis-text);
+      background: linear-gradient(135deg, rgba(0,217,255,.16), rgba(138,92,255,.16)), rgba(5,12,27,.92);
+      border: 1px solid rgba(0,217,255,.30);
+      box-shadow: 0 18px 50px rgba(0,0,0,.28), 0 0 28px rgba(0,217,255,.15);
+      backdrop-filter: blur(14px);
+      font-size: 13px;
+      line-height: 1.35;
+      animation: artemisCalloutPulse 3.2s ease-in-out infinite;
+    }
+
+    .artemis-callout b{ color:#aef4ff; }
+
+    .artemis-callout::after{
+      content:"";
+      position:absolute;
+      right:-9px;
+      bottom:18px;
+      width:16px;
+      height:16px;
+      transform: rotate(45deg);
+      background: rgba(5,12,27,.92);
+      border-top:1px solid rgba(0,217,255,.28);
+      border-right:1px solid rgba(0,217,255,.28);
+    }
+
+    @keyframes artemisCalloutPulse{
+      0%,100%{ transform: translateY(0); opacity:.93; }
+      50%{ transform: translateY(-4px); opacity:1; }
+    }
+
+    @media (max-width: 560px){
+      .artemis-chat{ right: 14px; bottom: 112px; height: min(650px, calc(100vh - 132px)); }
+      .artemis-launcher{ right: 14px; bottom: 14px; width: 82px; height: 82px; }
+      .artemis-callout{ right: 104px; bottom: 34px; max-width: 210px; font-size: 12px; padding: 10px 12px; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -733,6 +1049,47 @@
     </div>
   </footer>
 
+
+
+  <!-- ==============================
+       ARTEMIS CHATBOT - HTML
+       ============================== -->
+  <div class="artemis-callout" id="artemisCallout"><b>Interactúa con Artemis</b><br>Asistente virtual de Julian: perfil, IA, datos, proyectos y contacto.</div>
+
+  <button class="artemis-launcher" id="artemisLauncher" type="button" aria-label="Abrir chatbot Artemis">
+    <span class="artemis-launcher-avatar">👨‍🚀</span>
+    <span class="artemis-launcher-ping"></span>
+  </button>
+
+  <aside class="artemis-chat" id="artemisChat" aria-label="Chatbot Artemis">
+    <div class="artemis-header">
+      <div class="artemis-helmet">👨‍🚀</div>
+      <div class="artemis-titlebox">
+        <h3 class="artemis-title">ARTEMIS</h3>
+        <p class="artemis-subtitle">Asistente IA de Julian Robles • modo explorador</p>
+      </div>
+      <button class="artemis-close" id="artemisClose" type="button" aria-label="Cerrar chatbot">×</button>
+    </div>
+
+    <div class="artemis-body" id="artemisBody"></div>
+
+    <div class="artemis-suggestions" id="artemisSuggestions">
+      <button class="artemis-chip" type="button" data-question="¿Quién es Julian?">Perfil</button>
+      <button class="artemis-chip" type="button" data-question="¿Qué habilidades tiene?">Habilidades</button>
+      <button class="artemis-chip" type="button" data-question="¿Qué experiencia tiene?">Experiencia</button>
+      <button class="artemis-chip" type="button" data-question="¿Qué sabe de inteligencia artificial?">IA</button>
+      <button class="artemis-chip" type="button" data-question="¿Qué proyectos ha desarrollado?">Proyectos</button>
+      <button class="artemis-chip" type="button" data-question="¿Cuál es su experiencia en CAR y SENA?">CAR/SENA</button>
+      <button class="artemis-chip" type="button" data-question="¿Qué hace en biomédica y optometría?">Biomédica</button>
+      <button class="artemis-chip" type="button" data-question="¿Cómo puedo contactarlo?">Contacto</button>
+    </div>
+
+    <form class="artemis-inputbar" id="artemisForm">
+      <input class="artemis-input" id="artemisInput" type="text" autocomplete="off" placeholder="Pregúntame sobre Julian, IA, datos, proyectos..." />
+      <button class="artemis-send" type="submit">➤</button>
+    </form>
+  </aside>
+
   <script>
     const I18N = {
       es: {
@@ -1151,6 +1508,155 @@
     }
 
     draw();
+
+
+    // ==============================
+    // ARTEMIS CHATBOT - JAVASCRIPT
+    // Chatbot local, sin backend, sin APIs y sin compartir datos externos.
+    // ==============================
+    const artemisLauncher = document.getElementById("artemisLauncher");
+    const artemisChat = document.getElementById("artemisChat");
+    const artemisClose = document.getElementById("artemisClose");
+    const artemisBody = document.getElementById("artemisBody");
+    const artemisForm = document.getElementById("artemisForm");
+    const artemisInput = document.getElementById("artemisInput");
+    const artemisSuggestions = document.getElementById("artemisSuggestions");
+    const artemisCallout = document.getElementById("artemisCallout");
+
+    const ARTEMIS_KNOWLEDGE = {
+      perfil: `Julian David Robles Farías es Ingeniero Electrónico, Especialista en Gerencia de Proyectos y actualmente fortalece su perfil en Inteligencia Artificial. Su propuesta profesional une ingeniería, datos, automatización, desarrollo web, IA aplicada y soluciones tecnológicas para convertir información dispersa en sistemas útiles, trazables y orientados a decisiones.`,
+      propuesta: `La propuesta de valor de Julian se centra en resolver desorden operativo: archivos dispersos, procesos manuales, datos sin trazabilidad y decisiones sin indicadores. Integra Python, SQL, Power BI, automatización, IA y visión de gerencia de proyectos para construir herramientas funcionales, medibles y escalables.`,
+      experiencia: `Julian cuenta con experiencia en CAR, SENA, Notaría Primera del Círculo de Tunja, consultoría técnica en optometrías y gestión de datos ambientales. Ha trabajado en soporte TI, continuidad operativa, gestión documental, ingeniería de datos, dashboards, automatización, mantenimiento técnico, procesos institucionales y análisis operativo.`,
+      habilidades: `Sus habilidades principales incluyen Python, SQL, R, Power BI, Excel avanzado, LaTeX, desarrollo web, dashboards, ingeniería de datos, ETL, automatización, agentes IA, modelos de lenguaje, prompt engineering, plataformas IA, gobierno de datos, trazabilidad, cumplimiento, ISO 22301 e ISO 13485.`,
+      ia: `En IA, Julian se enfoca en agentes inteligentes, modelos de lenguaje, prompts empresariales, interpretación y ejecución de plataformas IA, automatización inteligente, clasificación documental, análisis operativo, generación de reportes ejecutivos y diseño de asistentes virtuales como Artemis. Su enfoque es práctico: usar IA para reducir trabajo manual, ordenar información y acelerar decisiones.`,
+      desarrollo: `En desarrollo, Julian trabaja con soluciones web, HTML, CSS, JavaScript, Python, Flask, automatización de reportes, estructuras de datos, integración de información y herramientas orientadas a usuarios reales. Su estilo combina funcionalidad, estética futurista, claridad operativa y utilidad empresarial.`,
+      datos: `En datos, Julian trabaja con limpieza, normalización, cruces por expediente, pipelines, validación de calidad, trazabilidad, tableros Power BI, análisis estadístico, indicadores, reportes gerenciales y procesamiento de grandes volúmenes con Python, Pandas, Dask y flujos ETL.`,
+      educacion: `Su formación incluye Ingeniería Electrónica en la Universidad Central, Especialización en Gerencia de Proyectos en Uniminuto y Especialización en Inteligencia Artificial en curso. También cuenta con formación en ISO 22301, SAP ERP, ISO 13485 y electrónica aplicada a ingeniería biomédica.`,
+      proyectos: `Julian desarrolla soluciones tecnológicas orientadas a datos, automatización, IA y web. Ha trabajado en proyectos de HV web, asistentes virtuales, dashboards, automatización documental, análisis SECOP II, integración SAE/SIDCAR, reportes jurídicos, soluciones empresariales y consultoría tecnológica. Su web de proyectos está disponible en soluciones-tecnologicas.onrender.com.`,
+      contacto: `Puedes contactar a Julian por correo en jroblesfarias@gmail.com, por WhatsApp al +57 322 247 3405 o desde la sección de contacto de esta página.`,
+      descarga: `En la sección “Descargas” puedes obtener la hoja de vida en PDF en español y el resume en inglés.`,
+      car: `En CAR, Julian ha trabajado en apoyo a gestión jurídica y documental, datos ambientales, SAE, SIDCAR, VITAL, SECOP II, pipelines de datos, indicadores, control, trazabilidad, reportes ejecutivos y análisis para toma de decisiones. También ha desarrollado lógica de seguimiento por expedientes, radicados, pre-radicados, responsables, regionales y estados de gestión.`,
+      sena: `En SENA, Julian aporta en soporte TI, continuidad operativa, servicios tecnológicos, bases de datos, atención de incidencias, documentación técnica, infraestructura, seguridad operativa y mejora de procesos mediante automatización e IA.`,
+      biometrica: `En el componente biomédico y técnico, Julian tiene experiencia en equipos de optometría, mantenimiento preventivo y correctivo, calibración, verificación técnica, trazabilidad, documentación, instalación de equipos, calidad y soporte técnico aplicado a entornos clínicos.`,
+      iso: `Julian tiene enfoque en continuidad operativa, cumplimiento, trazabilidad y normas como ISO 22301 e ISO 13485. Su perfil combina gestión de proyectos, control documental, auditoría interna, calidad de datos y análisis de riesgos.`,
+      personalidad: `Julian se proyecta como un profesional analítico, resolutivo y orientado a resultados. Su diferencial está en conectar ingeniería, datos, IA, procesos y comunicación técnica para construir soluciones entendibles para usuarios, directivos y equipos operativos.`
+    };
+
+    const ARTEMIS_RULES = [
+      { keys: ["quien", "perfil", "sobre", "julian", "presenta", "eres", "presentacion"], answer: ARTEMIS_KNOWLEDGE.perfil },
+      { keys: ["valor", "propuesta", "diferencial", "problema", "necesidad", "empresa", "negocio"], answer: ARTEMIS_KNOWLEDGE.propuesta },
+      { keys: ["experiencia", "trabajo", "laboral", "cargos", "roles", "empresas", "trayectoria"], answer: ARTEMIS_KNOWLEDGE.experiencia },
+      { keys: ["habilidad", "habilidades", "skills", "stack", "tecnologias", "herramientas", "sabe", "competencias"], answer: ARTEMIS_KNOWLEDGE.habilidades },
+      { keys: ["ia", "inteligencia", "artificial", "agente", "agentes", "llm", "prompt", "prompts", "modelos", "chatbot", "artemis"], answer: ARTEMIS_KNOWLEDGE.ia },
+      { keys: ["desarrollo", "software", "html", "css", "javascript", "flask", "web", "programacion", "programación"], answer: ARTEMIS_KNOWLEDGE.desarrollo },
+      { keys: ["datos", "data", "power bi", "dashboard", "dashboards", "etl", "python", "sql", "dask", "pandas", "indicadores"], answer: ARTEMIS_KNOWLEDGE.datos },
+      { keys: ["educacion", "estudio", "formacion", "universidad", "cursos", "certificaciones", "uniminuto", "central"], answer: ARTEMIS_KNOWLEDGE.educacion },
+      { keys: ["proyecto", "proyectos", "portafolio", "soluciones", "tecnologicas", "automatizacion", "automatización"], answer: ARTEMIS_KNOWLEDGE.proyectos },
+      { keys: ["contacto", "correo", "email", "telefono", "whatsapp", "llamar"], answer: ARTEMIS_KNOWLEDGE.contacto },
+      { keys: ["descargar", "descarga", "pdf", "hv", "resume", "hoja de vida"], answer: ARTEMIS_KNOWLEDGE.descarga },
+      { keys: ["car", "sae", "sidcar", "vital", "secop", "ambiental", "expediente", "radicado"], answer: ARTEMIS_KNOWLEDGE.car },
+      { keys: ["sena", "tic", "soporte", "infraestructura", "continuidad"], answer: ARTEMIS_KNOWLEDGE.sena },
+      { keys: ["biomedica", "biomédica", "optometria", "optometría", "equipos", "calibracion", "calibración", "mantenimiento"], answer: ARTEMIS_KNOWLEDGE.biometrica },
+      { keys: ["iso", "22301", "13485", "auditor", "norma", "calidad", "cumplimiento"], answer: ARTEMIS_KNOWLEDGE.iso },
+      { keys: ["personalidad", "estilo", "como trabaja", "fortaleza", "fortalezas"], answer: ARTEMIS_KNOWLEDGE.personalidad }
+    ];
+
+    function artemisNormalize(text){
+      return (text || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9ñ\s]/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function artemisAddMessage(text, sender = "bot"){
+      const msg = document.createElement("div");
+      msg.className = `artemis-msg ${sender}`;
+      msg.innerHTML = text;
+      artemisBody.appendChild(msg);
+      artemisBody.scrollTop = artemisBody.scrollHeight;
+      return msg;
+    }
+
+    function artemisTyping(){
+      return artemisAddMessage(`<span class="artemis-typing"><span></span><span></span><span></span></span>`, "bot");
+    }
+
+    function artemisResponse(question){
+      const q = artemisNormalize(question);
+
+      if (!q) {
+        return "Activa tu señal, comandante. Escríbeme una pregunta sobre <b>perfil, propuesta de valor, experiencia, habilidades, IA, desarrollo, datos, educación, proyectos, CAR, SENA, biomédica, normas ISO o contacto</b>.";
+      }
+
+      let best = null;
+      let bestScore = 0;
+
+      for (const rule of ARTEMIS_RULES){
+        const score = rule.keys.reduce((acc, key) => acc + (q.includes(artemisNormalize(key)) ? 1 : 0), 0);
+        if (score > bestScore){
+          bestScore = score;
+          best = rule;
+        }
+      }
+
+      if (best) {
+        return `🛰️ <b>Artemis responde:</b>\n${best.answer}`;
+      }
+
+      if (q.includes("hola") || q.includes("buenas") || q.includes("hello")){
+        return "👨‍🚀 Hola, soy <b>Artemis</b>, el asistente orbital de Julian. Puedo responder sobre su perfil, propuesta de valor, experiencia, habilidades, IA, desarrollo, datos, educación, proyectos, CAR, SENA, biomédica, normas ISO y contacto.";
+      }
+
+      return `🚀 No tengo una respuesta exacta en mi base local, pero puedo orientarte sobre: <b>perfil profesional, propuesta de valor, experiencia, habilidades técnicas, inteligencia artificial, desarrollo, datos, proyectos, CAR, SENA, biomédica, ISO, descargas y contacto</b>. Prueba con una de esas rutas.`;
+    }
+
+    function artemisAsk(question){
+      artemisAddMessage(question, "user");
+      const typing = artemisTyping();
+      setTimeout(() => {
+        typing.remove();
+        artemisAddMessage(artemisResponse(question), "bot");
+      }, 480);
+    }
+
+    function artemisOpen(){
+      artemisChat.classList.add("is-open");
+      if (artemisCallout) artemisCallout.style.display = "none";
+      artemisInput.focus();
+      if (!artemisChat.dataset.started){
+        artemisChat.dataset.started = "true";
+        artemisAddMessage("👨‍🚀 <b>Artemis online.</b> Interactúa conmigo como asistente virtual de Julian Robles. Puedo responder sobre perfil, propuesta de valor, experiencia, habilidades, IA, desarrollo, datos, educación, proyectos, CAR, SENA, biomédica, normas ISO y contacto.", "bot");
+      }
+    }
+
+    function artemisCloseChat(){
+      artemisChat.classList.remove("is-open");
+    }
+
+    artemisLauncher.addEventListener("click", artemisOpen);
+    artemisClose.addEventListener("click", artemisCloseChat);
+
+    artemisForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const value = artemisInput.value.trim();
+      if (!value) return;
+      artemisInput.value = "";
+      artemisAsk(value);
+    });
+
+    artemisSuggestions.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-question]");
+      if (!btn) return;
+      artemisAsk(btn.dataset.question);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") artemisCloseChat();
+    });
+
   </script>
 
 </body>
